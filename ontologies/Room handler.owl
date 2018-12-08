@@ -1,0 +1,812 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#"
+     xml:base="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79"
+     xmlns:ace-Planner="http://attempto.ifi.uzh.ch/ace-Planner/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:ace_lexicon="http://attempto.ifi.uzh.ch/ace_lexicon#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl -->
+
+    <owl:AnnotationProperty rdf:about="http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg -->
+
+    <owl:AnnotationProperty rdf:about="http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#PN_sg -->
+
+    <owl:AnnotationProperty rdf:about="http://attempto.ifi.uzh.ch/ace_lexicon#PN_sg"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl -->
+
+    <owl:AnnotationProperty rdf:about="http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg -->
+
+    <owl:AnnotationProperty rdf:about="http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg -->
+
+    <owl:AnnotationProperty rdf:about="http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/has-condition -->
+
+    <owl:ObjectProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/has-condition">
+        <rdfs:range rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/condition"/>
+        <ace_lexicon:TV_pl>has-condition</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>has-conditions</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>has-conditioned</ace_lexicon:TV_vbg>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/has-effect -->
+
+    <owl:ObjectProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/has-effect">
+        <rdfs:range rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/effect"/>
+        <ace_lexicon:TV_pl>has-effect</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>has-effects</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>has-effected</ace_lexicon:TV_vbg>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/has-parameter -->
+
+    <owl:ObjectProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/has-parameter">
+        <rdfs:range rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/action-parameter"/>
+        <ace_lexicon:TV_pl>has-parameter</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>has-parameters</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>has-parametered</ace_lexicon:TV_vbg>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/has-problem -->
+
+    <owl:ObjectProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/has-problem">
+        <rdfs:range rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/problem"/>
+        <ace_lexicon:TV_pl>has-problem</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>has-problems</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>has-problemed</ace_lexicon:TV_vbg>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/has-sentences-used -->
+
+    <owl:ObjectProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/has-sentences-used">
+        <rdfs:range rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/sentences-used"/>
+        <ace_lexicon:TV_pl>has-sentences-used</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>has-sentences-useds</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>has-sentences-useded</ace_lexicon:TV_vbg>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/hasAction -->
+
+    <owl:ObjectProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/hasAction">
+        <rdfs:range rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/action"/>
+        <ace_lexicon:TV_pl>hasAction</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>hasActions</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>hasActioned</ace_lexicon:TV_vbg>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/hasGoal -->
+
+    <owl:ObjectProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/hasGoal">
+        <rdfs:range rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/goal"/>
+        <ace_lexicon:TV_pl>hasGoal</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>hasGoals</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>hasGoaled</ace_lexicon:TV_vbg>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#have -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#have"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/action-name -->
+
+    <owl:DatatypeProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/action-name">
+        <ace_lexicon:TV_pl>action-name</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>action-names</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>action-named</ace_lexicon:TV_vbg>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/domain-name -->
+
+    <owl:DatatypeProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/domain-name">
+        <ace_lexicon:TV_pl>domain-name</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>domain-names</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>domain-named</ace_lexicon:TV_vbg>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/negated -->
+
+    <owl:DatatypeProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/negated">
+        <ace_lexicon:TV_pl>negated</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>negateds</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>negateded</ace_lexicon:TV_vbg>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/object-identifier -->
+
+    <owl:DatatypeProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/object-identifier">
+        <ace_lexicon:TV_pl>object-identifier</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>object-identifiers</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>object-identifiered</ace_lexicon:TV_vbg>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/parameter-name -->
+
+    <owl:DatatypeProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/parameter-name">
+        <ace_lexicon:TV_pl>parameter-name</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>parameter-names</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>parameter-named</ace_lexicon:TV_vbg>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/parameter-value -->
+
+    <owl:DatatypeProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/parameter-value">
+        <ace_lexicon:TV_pl>parameter-value</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>parameter-values</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>parameter-valued</ace_lexicon:TV_vbg>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/question -->
+
+    <owl:DatatypeProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/question">
+        <ace_lexicon:TV_pl>question</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>questions</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>questioned</ace_lexicon:TV_vbg>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/sentence -->
+
+    <owl:DatatypeProperty rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/sentence">
+        <ace_lexicon:TV_pl>sentence</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>sentences</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>sentenced</ace_lexicon:TV_vbg>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/action -->
+
+    <owl:Class rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/action">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/has-condition"/>
+                <owl:someValuesFrom rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/condition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/has-effect"/>
+                <owl:someValuesFrom rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/effect"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <ace_lexicon:CN_pl>actions</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>action</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/action-parameter -->
+
+    <owl:Class rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/action-parameter"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/condition -->
+
+    <owl:Class rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/condition">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/has-parameter"/>
+                <owl:someValuesFrom rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/action-parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/domain -->
+
+    <owl:Class rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/domain">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/has-problem"/>
+                <owl:someValuesFrom rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/problem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/has-sentences-used"/>
+                <owl:someValuesFrom rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/sentences-used"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/hasAction"/>
+                <owl:someValuesFrom rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/action"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <ace_lexicon:CN_pl>domains</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>domain</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/effect -->
+
+    <owl:Class rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/effect">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/has-parameter"/>
+                <owl:someValuesFrom rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/action-parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/goal -->
+
+    <owl:Class rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/goal"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/problem -->
+
+    <owl:Class rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/problem"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/sentences-used -->
+
+    <owl:Class rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/sentences-used"/>
+    
+
+
+    <!-- http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#cold -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#cold"/>
+    
+
+
+    <!-- http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#room -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#room">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#have"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#temperature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#temperature -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#temperature"/>
+    
+
+
+    <!-- http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#warm -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#warm"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/action&#45;&#45;c1bc27bb-bbfb-4693-967f-a1a911d8a83f -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/action--c1bc27bb-bbfb-4693-967f-a1a911d8a83f">
+        <ace_lexicon:PN_sg>action--c1bc27bb-bbfb-4693-967f-a1a911d8a83f</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/action-parameter -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/action-parameter">
+        <ace-Planner:parameter-name xml:lang="en">The name of a parameter</ace-Planner:parameter-name>
+        <ace-Planner:parameter-value xml:lang="en">The value of a parameter</ace-Planner:parameter-value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/action-switch-on-ac-008a0df0-2402-44ad-9010-4235c3d93dee -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/action-switch-on-ac-008a0df0-2402-44ad-9010-4235c3d93dee">
+        <rdf:type rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/action"/>
+        <ace-Planner:has-condition rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/condition-switch-on-ac-what-is-a-room-which-has-a-warm-temperature"/>
+        <ace-Planner:has-effect rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/effect-switch-on-ac-param-room-has-a-cold-temperature-."/>
+        <ace-Planner:has-effect rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/effect-switch-on-ac-param-room-has-a-warm-temperature-."/>
+        <ace-Planner:action-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Switch on AC</ace-Planner:action-name>
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">008a0df0-2402-44ad-9010-4235c3d93dee</ace-Planner:object-identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/action-switch-on-heater-c1bc27bb-bbfb-4693-967f-a1a911d8a83f -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/action-switch-on-heater-c1bc27bb-bbfb-4693-967f-a1a911d8a83f">
+        <rdf:type rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/action"/>
+        <ace-Planner:has-condition rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/condition-switch-on-heater-what-is-a-room-which-has-a-cold-temperature"/>
+        <ace-Planner:has-effect rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/effect-switch-on-heater-param-room-has-a-cold-temperature-."/>
+        <ace-Planner:has-effect rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/effect-switch-on-heater-param-room-has-a-warm-temperature-."/>
+        <ace-Planner:action-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Switch on heater</ace-Planner:action-name>
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">c1bc27bb-bbfb-4693-967f-a1a911d8a83f</ace-Planner:object-identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/condition -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/condition">
+        <ace-Planner:question xml:lang="en">A question for ACE Planner</ace-Planner:question>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/condition-switch-on-ac-what-is-a-room-which-has-a-warm-temperature -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/condition-switch-on-ac-what-is-a-room-which-has-a-warm-temperature">
+        <rdf:type rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/condition"/>
+        <ace-Planner:has-parameter rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/condition-switch-on-ac-what-is-a-room-which-has-a-warm-temperature-param-param-room"/>
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cced2383-cdc9-4f4b-af01-d91a6690f6ca</ace-Planner:object-identifier>
+        <ace-Planner:question rdf:datatype="http://www.w3.org/2001/XMLSchema#string">What is a room which has a warm temperature ?</ace-Planner:question>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/condition-switch-on-ac-what-is-a-room-which-has-a-warm-temperature-param-param-room -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/condition-switch-on-ac-what-is-a-room-which-has-a-warm-temperature-param-param-room">
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ec59919c-7546-4633-859a-ad9a968ae7e6</ace-Planner:object-identifier>
+        <ace-Planner:parameter-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Object</ace-Planner:parameter-name>
+        <ace-Planner:parameter-value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">param-room</ace-Planner:parameter-value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/condition-switch-on-heater-what-is-a-room-which-has-a-cold-temperature -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/condition-switch-on-heater-what-is-a-room-which-has-a-cold-temperature">
+        <rdf:type rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/condition"/>
+        <ace-Planner:has-parameter rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/condition-switch-on-heater-what-is-a-room-which-has-a-cold-temperature-param-param-room"/>
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8289a5a3-404c-4092-abfc-952ce0cae6ea</ace-Planner:object-identifier>
+        <ace-Planner:question rdf:datatype="http://www.w3.org/2001/XMLSchema#string">What is a room which has a cold temperature ?</ace-Planner:question>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/condition-switch-on-heater-what-is-a-room-which-has-a-cold-temperature-param-param-room -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/condition-switch-on-heater-what-is-a-room-which-has-a-cold-temperature-param-param-room">
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">84623432-efd5-45e8-80ba-13f097dc9d65</ace-Planner:object-identifier>
+        <ace-Planner:parameter-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Object</ace-Planner:parameter-name>
+        <ace-Planner:parameter-value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">param-room</ace-Planner:parameter-value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/domain-not-set-a0581d64-44a7-48d9-905d-1537e5042b64 -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/domain-not-set-a0581d64-44a7-48d9-905d-1537e5042b64">
+        <rdf:type rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/domain"/>
+        <ace-Planner:has-problem rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/problem-0b749fca-209a-44ae-9598-719adb8ea73c"/>
+        <ace-Planner:has-sentences-used rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/sentences-used-b42cb528-0a76-4ee3-a20f-86b2ba61aa05"/>
+        <ace-Planner:hasAction rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/action-switch-on-ac-008a0df0-2402-44ad-9010-4235c3d93dee"/>
+        <ace-Planner:hasAction rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/action-switch-on-heater-c1bc27bb-bbfb-4693-967f-a1a911d8a83f"/>
+        <ace-Planner:hasGoal rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/goal-5d0c0d9c-b297-4149-bf75-b1195a48807f"/>
+        <ace-Planner:domain-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">not set</ace-Planner:domain-name>
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a0581d64-44a7-48d9-905d-1537e5042b64</ace-Planner:object-identifier>
+        <ace_lexicon:PN_sg>domain-not-set-a0581d64-44a7-48d9-905d-1537e5042b64</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/effect -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/effect">
+        <ace-Planner:action-name xml:lang="en">The name for an ACE Planner action</ace-Planner:action-name>
+        <ace-Planner:negated xml:lang="en">Whether the effect is a negation or not</ace-Planner:negated>
+        <ace-Planner:sentence xml:lang="en">A sentence for ACE Planner</ace-Planner:sentence>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/effect-switch-on-ac-param-room-has-a-cold-temperature-. -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/effect-switch-on-ac-param-room-has-a-cold-temperature-.">
+        <rdf:type rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/effect"/>
+        <ace-Planner:negated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ace-Planner:negated>
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2490be54-d211-4e57-859e-293f33cb46a3</ace-Planner:object-identifier>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">param-room has a cold temperature .</ace-Planner:sentence>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/effect-switch-on-ac-param-room-has-a-warm-temperature-. -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/effect-switch-on-ac-param-room-has-a-warm-temperature-.">
+        <rdf:type rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/effect"/>
+        <ace-Planner:negated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ace-Planner:negated>
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">be31df57-da96-4a64-b050-c4bf4770b6f2</ace-Planner:object-identifier>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">param-room has a warm temperature .</ace-Planner:sentence>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/effect-switch-on-heater-param-room-has-a-cold-temperature-. -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/effect-switch-on-heater-param-room-has-a-cold-temperature-.">
+        <rdf:type rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/effect"/>
+        <ace-Planner:negated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ace-Planner:negated>
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">d0bd0e92-e1c3-4baf-9cbc-2ca7c37ce8ec</ace-Planner:object-identifier>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">param-room has a cold temperature .</ace-Planner:sentence>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/effect-switch-on-heater-param-room-has-a-warm-temperature-. -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/effect-switch-on-heater-param-room-has-a-warm-temperature-.">
+        <rdf:type rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/effect"/>
+        <ace-Planner:negated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ace-Planner:negated>
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">61cce669-8e92-4bdc-8275-3f7df6d1c18a</ace-Planner:object-identifier>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">param-room has a warm temperature .</ace-Planner:sentence>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/goal -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/goal">
+        <ace-Planner:sentence xml:lang="en">A sentence for ACE Planner</ace-Planner:sentence>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/goal-5d0c0d9c-b297-4149-bf75-b1195a48807f -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/goal-5d0c0d9c-b297-4149-bf75-b1195a48807f">
+        <rdf:type rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/goal"/>
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5d0c0d9c-b297-4149-bf75-b1195a48807f</ace-Planner:object-identifier>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Room-one has a warm temperature .</ace-Planner:sentence>
+        <ace_lexicon:PN_sg>goal-5d0c0d9c-b297-4149-bf75-b1195a48807f</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/problem -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/problem">
+        <ace-Planner:sentence xml:lang="en">A sentence for ACE Planner</ace-Planner:sentence>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/problem-0b749fca-209a-44ae-9598-719adb8ea73c -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/problem-0b749fca-209a-44ae-9598-719adb8ea73c">
+        <rdf:type rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/problem"/>
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0b749fca-209a-44ae-9598-719adb8ea73c</ace-Planner:object-identifier>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Every room has a temperature .</ace-Planner:sentence>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Every room is something .</ace-Planner:sentence>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Every room that has a cold temperature is something .</ace-Planner:sentence>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Every room that has a cold that is a temperature is something .</ace-Planner:sentence>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Every room that has a temperature is something .</ace-Planner:sentence>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Every room that has a warm temperature is something .</ace-Planner:sentence>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Every room that has a warm that is a temperature is something .</ace-Planner:sentence>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Room-one has a cold temperature .</ace-Planner:sentence>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Room-one is a room .</ace-Planner:sentence>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Room-one is something .</ace-Planner:sentence>
+        <ace_lexicon:PN_sg>problem-0b749fca-209a-44ae-9598-719adb8ea73c</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/sentences-used -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/sentences-used">
+        <ace-Planner:sentence xml:lang="en">A sentence for ACE Planner</ace-Planner:sentence>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace-Planner/sentences-used-b42cb528-0a76-4ee3-a20f-86b2ba61aa05 -->
+
+    <owl:NamedIndividual rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/sentences-used-b42cb528-0a76-4ee3-a20f-86b2ba61aa05">
+        <rdf:type rdf:resource="http://attempto.ifi.uzh.ch/ace-Planner/sentences-used"/>
+        <ace-Planner:object-identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">b42cb528-0a76-4ee3-a20f-86b2ba61aa05</ace-Planner:object-identifier>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">What is a room which has a cold temperature ?</ace-Planner:sentence>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">What is a room which has a warm temperature ?</ace-Planner:sentence>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">param-room has a cold temperature .</ace-Planner:sentence>
+        <ace-Planner:sentence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">param-room has a warm temperature .</ace-Planner:sentence>
+        <ace_lexicon:PN_sg>sentences-used-b42cb528-0a76-4ee3-a20f-86b2ba61aa05</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79">
+        <ace-Planner:action-name xml:lang="en">The name for an ACE Planner action</ace-Planner:action-name>
+        <ace-Planner:domain-name xml:lang="en">The domain name for ACE Planner ontology</ace-Planner:domain-name>
+        <ace-Planner:object-identifier xml:lang="en">The unique identifier of an object</ace-Planner:object-identifier>
+        <ace-Planner:parameter-name xml:lang="en">The name of a parameter</ace-Planner:parameter-name>
+        <ace-Planner:parameter-value xml:lang="en">The value of a parameter</ace-Planner:parameter-value>
+        <ace-Planner:question xml:lang="en">A question for ACE Planner</ace-Planner:question>
+        <ace-Planner:sentence xml:lang="en">A sentence for ACE Planner</ace-Planner:sentence>
+        <ace_lexicon:PN_sg>untitled-ontology-79</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#Room-one -->
+
+    <owl:Thing rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#Room-one">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#room"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#have"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#cold"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#temperature"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#have"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#temperature"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#warm"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#param-room -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#param-room">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#have"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#cold"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#temperature"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#have"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#temperature"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#warm"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/action-parameter">
+        <ace_lexicon:CN_pl>action-parameters</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>action-parameter</ace_lexicon:CN_sg>
+        <ace_lexicon:PN_sg>action-parameter</ace_lexicon:PN_sg>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/condition">
+        <ace_lexicon:PN_sg>condition</ace_lexicon:PN_sg>
+        <ace_lexicon:CN_pl>conditions</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>condition</ace_lexicon:CN_sg>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/effect">
+        <ace_lexicon:CN_sg>effect</ace_lexicon:CN_sg>
+        <ace_lexicon:PN_sg>effect</ace_lexicon:PN_sg>
+        <ace_lexicon:CN_pl>effects</ace_lexicon:CN_pl>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/goal">
+        <ace_lexicon:CN_sg>goal</ace_lexicon:CN_sg>
+        <ace_lexicon:PN_sg>goal</ace_lexicon:PN_sg>
+        <ace_lexicon:CN_pl>goals</ace_lexicon:CN_pl>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/problem">
+        <ace_lexicon:PN_sg>problem</ace_lexicon:PN_sg>
+        <ace_lexicon:CN_pl>problems</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>problem</ace_lexicon:CN_sg>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://attempto.ifi.uzh.ch/ace-Planner/sentences-used">
+        <ace_lexicon:CN_pl>sentences-useds</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>sentences-used</ace_lexicon:CN_sg>
+        <ace_lexicon:PN_sg>sentences-used</ace_lexicon:PN_sg>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#room"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#have"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#temperature"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#room"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#have"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#cold"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#temperature"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#room"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#have"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#temperature"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/michael/ontologies/2018/0/untitled-ontology-79#warm"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

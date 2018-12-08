@@ -1,0 +1,1027 @@
+/***********************************************************
+   PDDL2.1 Java Parser (Using JavaCC Syntax)
+   Author: Minh B. Do - Arizona State University
+***********************************************************/
+
+options {
+    IGNORE_CASE = true;
+    DEBUG_PARSER = false;
+    LOOKAHEAD = 3;
+    FORCE_LA_CHECK = true;
+}
+
+/*********************************************************/
+PARSER_BEGIN(PDDL21Parser)
+
+package edu.asu.sapa.parsing;
+import edu.asu.sapa.basic_ds.*;
+
+import java.util.*;
+
+public class PDDL21Parser {
+    public static void main(String args[]) {
+	PDDL21Parser parser = new PDDL21Parser(System.in);
+	java.io.FileInputStream pddl_file;
+	Domain my_domain = new Domain();
+	Problem my_problem = new Problem();
+
+	/*
+	 * Instantiate a parser
+	 */
+	if( args.length == 0 ) {
+	    System.out.println("PDDL2.1 Parser Version1.0: " +
+			       "Reading from standard input!!");
+	} else if (args.length > 2 ) {
+	    System.out.println("PDDL2.1 Parser Version1.0!!");
+	    System.out.println("Usage: java PDDL21Parser domain.pddl [problem.pddl]");
+	    return;
+	} else {
+	    /*** Parse the Domain specification file ****/
+	    try {
+		pddl_file = new java.io.FileInputStream(args[0]);
+		parser.ReInit(pddl_file);
+	    } catch(java.io.FileNotFoundException e) {
+		System.out.println("File " + args[0] + " not found !!!");
+		return;
+	    }
+      	}
+
+	/*
+	 * Try to parse the input file
+	 */
+	try {
+	    my_domain = parser.parse_domain_pddl();
+	    System.out.println("Domain file parsed Succesfully !!");
+	} catch( ParseException e) {
+	    System.out.println("Exception while parsing !!");
+	}
+
+	/**** Parse the problem file ****/
+	if( args.length == 2 ) {
+	    try { 
+	        pddl_file = new java.io.FileInputStream(args[1]);
+		parser.ReInit(pddl_file);
+	    } catch(java.io.FileNotFoundException e) {
+		System.out.println("File " + args[1] + " not found !!!");
+		return;
+	    }
+
+	    try {
+		my_problem = parser.parse_problem_pddl();
+		System.out.println("Problem parsed Succesfully !!");
+	    } catch( ParseException e) {
+	        System.out.println("Exception while parsing problem file!!");
+	    }
+	}
+
+	/****** Check if we parse the domain correctly *******/
+	System.out.println("*****************************");
+	System.out.println("Name: " + my_domain.getName());
+	System.out.print("Requirements: ");
+	int i;
+	for(i = 0; i < my_domain.numReq(); i++ )
+	      System.out.print((String) my_domain.getReq(i) + " ");
+
+	/********/
+	System.out.print("\nTypes: ");
+	for(i = 0; i < my_domain.numType(); i++ ) {
+	      Object obj = my_domain.getType(i);
+	      System.out.print((String) obj  + "->" +
+				my_domain.getParent((String) obj) + " ");
+	}
+
+	/********/
+	System.out.print("\nPredicates: ");
+	for(i = 0; i < my_domain.numPred(); i++ )
+	      System.out.print( my_domain.getPred(i) + " ");
+
+	System.out.print("\nFunctions: ");
+	for(i = 0; i < my_domain.numFunction(); i++ )
+	      System.out.print( my_domain.getFunction(i) + " ");
+
+	try {
+	    System.in.read();
+	    System.in.read();
+	} catch(Exception e) {
+	    e.printStackTrace();
+        }
+
+	System.out.println("\nActions: ");
+	for(i = 0; i < my_domain.numAction(); i++ ) {
+	      System.out.print( my_domain.getAction(i) + " ");
+	      try {
+		  System.in.read();
+		  System.in.read();
+	      } catch(Exception e) {
+		  e.printStackTrace();
+	      }
+	}
+
+	/**** Check if the problem is parsed correctly ****/
+	System.out.println("\n********* Problem Specification *****");
+	System.out.print(my_problem.toString());
+    }
+}
+
+PARSER_END(PDDL21Parser)
+/***********************************************************/
+
+SKIP : /* White space and NewLine */
+{
+    " "
+|   "\t"
+|   "\n"
+|   "\r"
+|   "\f"
+}
+
+SPECIAL_TOKEN: /* Comments */
+{
+    <SINGLE_LINE_COMMENT: ";;" (~["\n", "\r"])* ("\n" | "\r" | "\r\n")>
+}
+
+
+TOKEN: /* Reserved Words and Literals */
+{
+    <DEFINE: "define">
+		 |   <DOMAIN: "domain">
+		 |   <FUNCTION: ":functions">
+		 |   <REQUIREMENTS: ":requirements">
+		 |   <TYPES: ":types">
+		 |   <CONSTANTS: ":constants">
+		 |   <PREDICATES: ":predicates">
+		 |   <ACTION: ":action">
+		 |   <DURATIVE_ACTION: ":durative-action">
+		 |   <VARS: ":vars">
+		 |   <PARAMETERS: ":parameters">
+		 |   <COST: ":cost">
+
+		 /* Domain requirements */
+		 |   <REQUIREMENT: ":strips" | ":typing" | ":negative-preconditions" |
+		     ":disjunctive-preconditions" | ":equality" |
+		      ":existential-preconditions" | ":universal-preconditions" |
+		      ":quantified-preconditions" | ":conditional-effects" | ":fluents" | 
+		      ":adl" | ":durative-actions" |
+		      ":duration-inequalities" | ":continuous-effects">
+		 /* Domain requirements 
+		 |   <TYPING: ":typing">
+		 |   <STRIPS: ":strips">
+		 |   <EQUALITY: ":equality">
+		 |   <ADL: ":adl">		 
+		 |   <DURATIVE_ACTIONS: ":durative-actions">
+		 |   <DURATION_INEQUAL: ":duration-inequalities">
+		 |   <CONT_EFFECT: ":continuous-effects"> */
+
+		 /* Precondition-related terms */
+		 |   <CONDITION: ":condition">
+		 |   <PRECONDITION: ":precondition">
+
+		 /* Effect-related terms */
+		 |   <EFFECT: ":effect">
+		 |   <ASSIGN: "assign">
+		 |   <SCALEUP: "scale-up">
+		 |   <SCALEDOWN: "scale-down">
+		 |   <INCREASE: "increase">
+		 |   <DECREASE: "decrease">
+
+		 /* Time-related terms */
+		 |   <DURATION: ":duration">
+		 |   <DURATION_VAR: "?duration">
+		 |   <AT: "at">
+		 |   <START: "start">
+		 |   <END: "end">
+		 |   <OVER: "over">
+		 |   <ALL: "all">
+		 |   <LOCALTIME: "#t">
+
+		 /* Logical relations */
+		 |   <AND: "and">
+		 |   <OR: "or">
+		 |   <NOT: "not">
+		 |   <FORALL: "forall">
+		 |   <WHEN:   "when">
+		 |   <EXISTS: "exists">
+		 |   <EITHER: "either">
+
+		 /* For PROBLEM files */
+		 |   <PROBLEM: "problem">
+		 |   <DOMAIN_TAG: ":domain">
+		 |   <OBJECT: ":objects">
+		 |   <GOAL: ":goal">
+		 |   <INIT: ":init">
+		 |   <METRIC: ":metric">
+		 |   <MAXIMIZE: "maximize">
+		 |   <MINIMIZE:	"minimize">
+		 /* |   <TOTAL_TIME: "total-time"> */
+		 |   <LENGTH: ":length">
+		 |   <SERIAL: ":serial">
+		 |   <PARALLEL: ":parallel">
+}	    
+
+TOKEN: /* Literals */
+{
+    <A_NUMBER:
+	"0" | ["1"-"9"] (["0"-"9"])*
+	    | (["0"-"9"])+ "." (["0"-"9"])+ >
+
+|   <ASSIGN_MATH: "+=" | "-=" | "*=" | "/=">
+|   <EQUAL: "=">
+|   <PLUS: "+">
+|   <MINUS: "-">
+|   <MUL: "*">
+|   <DIVIDE: "/">
+|   <COMPARISON: ">=" | "<=" | "=" | "<" | ">">
+|   <VAR: "?" ["a"-"z","A"-"Z"] (["a"-"z","A"-"Z","-","_","0"-"9"])* >
+|   <NAME: ["a"-"z","A"-"Z"] (["a"-"z","A"-"Z","-","_","0"-"9"])* >
+/* |   <REQUIREMENT: ":" (["a"-"z","A"-"Z"])+ > */
+|   <OPENBRACE: "(">
+|   <CLOSEBRACE: ")">
+}
+
+/*******************************************************************/
+Domain parse_domain_pddl() :
+{
+    Domain aDomain = new Domain();
+    String s;
+    ArrayList aArrayList = new ArrayList(10);
+    int i;
+    boolean type_declaration = false;
+    ArrayList v = new ArrayList();
+    ArrayList value = new ArrayList();
+    Token t;
+}
+{
+    s = DomainName()
+    {
+	aDomain.setName(s);
+    }
+    aArrayList = Requirements()
+    {
+	for( i = 0; i < aArrayList.size(); i++ ) {
+	    aDomain.putReq(aArrayList.get(i));
+	}
+    }
+
+    /**** For Object Types Hiarchy (if there is no ancestor-decestor relation then nothing is parsed in) *******/
+    (<OPENBRACE> <TYPES>
+    {
+	v.clear();
+    }
+    ( (t = <NAME>
+    {
+	v.add(t.image.toLowerCase());
+    })+ (<MINUS> t=<NAME>
+    {
+	aDomain.putTypeMap(v, t.image.toLowerCase());
+	v.clear();
+    })? )+ <CLOSEBRACE>
+    {
+	type_declaration = true;
+    } )?
+    {
+    	aDomain.setDomainType(type_declaration); /* Domain is typed or not */
+    }
+
+    /*** IF WE NEED TO PARSE THE CONSTANT, MODIFY FROM PDDLParser.jj ****/
+    (<OPENBRACE> <CONSTANTS>
+    {
+	v.clear();
+    }
+    ( (t = <NAME>
+    {
+	v.add(t.image.toLowerCase());
+    })+ (<MINUS> t=<NAME>
+    {
+	aDomain.putConstants(v, t.image.toLowerCase());
+	v.clear();
+    })? )+ <CLOSEBRACE>
+    {
+	if(!type_declaration)
+	   aDomain.putConstants(v, "basic_type");
+    })?
+
+    /***** For predicates *****/
+    aArrayList = PredicateList()
+    {
+	for( i = 0; i < aArrayList.size(); i++ ) {
+	    aDomain.putPred((Predicate) aArrayList.get(i));
+	}
+    }
+
+    /***** For functions ****/
+    (aArrayList = FunctionList()
+    {
+	for( i = 0; i < aArrayList.size(); i++ ) {
+	    aDomain.putFunction((Function) aArrayList.get(i));
+	}
+    })?
+
+
+    /*******/
+    aArrayList = ActionList()
+    {
+	for( i = 0; i < aArrayList.size(); i++ ) {
+	    aDomain.putAction((Action) aArrayList.get(i));
+	}
+    }
+    (<CLOSEBRACE>)? <EOF>
+    {
+	return aDomain;
+    }
+
+}
+
+
+/******/
+String DomainName() :
+{
+    Token t;
+}
+{
+    <OPENBRACE> <DEFINE> <OPENBRACE> <DOMAIN> t=<NAME> <CLOSEBRACE>
+    {
+	return t.image.toLowerCase();
+    }
+}
+
+
+/******/
+ArrayList Requirements() :
+{
+    Token t;
+    ArrayList v = new ArrayList(10);
+}
+{
+    <OPENBRACE> <REQUIREMENTS> ( t = <REQUIREMENT>
+     {
+	 v.add(t.image.toLowerCase());
+     })+
+    <CLOSEBRACE>
+     {
+	 return v;
+     }
+}
+
+
+/*******/
+ArrayList PredicateList() :
+{
+    Token t;
+    ArrayList v = new ArrayList(10);
+    Predicate s;
+}
+{
+    <OPENBRACE> <PREDICATES> ( s = DeclarePred()
+     {
+	 v.add(s);
+     }
+		       )+
+    <CLOSEBRACE>
+     {
+	 return v;
+     }
+}
+
+/*** Modified for PDDL2.1. May need to consult more examples ****/
+/*** Predicate type declaration at the top of the domain file ***/
+Predicate DeclarePred() :
+{
+    Token t;
+    Predicate p = new Predicate();
+    int count = 0;
+    String combineName = new String();
+    boolean isTyped = false;
+}
+{
+    <OPENBRACE> (t=<NAME> | t=<AT>)
+	{
+	    p.setName(t.image.toLowerCase());
+	}
+    ( (t=<VAR> {count++;})+ (<MINUS>
+	{
+	    isTyped = true; /* The domain is "typed" */
+	} 
+	( (t=<NAME>
+	{
+	    p.addObj(t.image.toLowerCase(), count);
+	    count = 0;
+	}) | (<OPENBRACE> <EITHER> (t=<NAME>
+	{
+	    combineName += t.image.toLowerCase() + "*";
+	})+ <CLOSEBRACE>
+	{
+	    p.addObj(combineName, count);
+	    count = 0;
+	    combineName = new String();
+	}) ) )?
+     )* <CLOSEBRACE>
+	{
+	    if(!isTyped)
+		p.addObj("basic_type", count);
+
+	    return p;
+	}
+}
+
+/*** Predicate declaration inside action declaration in the domain file ***/
+Predicate ActionPred() :
+{
+    Token t;
+    Predicate p = new Predicate();
+}
+{
+    <OPENBRACE> (t=<NAME> | t=<AT>)
+	{
+	    p.setName(t.image.toLowerCase());
+	}
+    ( (t=<VAR> | t=<NAME>)
+	{
+	    p.addObj(t.image.toLowerCase(), 1);
+	}
+     )* <CLOSEBRACE>
+	{
+	    return p;
+	}
+}
+
+/*** Predicate instance declaration in the problem file ***/
+Predicate ProbPred() :
+{
+    Token t;
+    Predicate p = new Predicate();
+}
+{
+    <OPENBRACE> (t=<NAME> | t=<AT>)
+	{
+	    p.setName(t.image.toLowerCase());
+	}
+    ( t=<NAME>
+	{
+	    p.addObj(t.image.toLowerCase(), 1);
+	}
+     )* <CLOSEBRACE>
+	{
+	    return p;
+	}
+}
+
+
+
+/*******/
+ArrayList FunctionList() :
+{
+    Token t;
+    ArrayList v = new ArrayList(10);
+    Function s;
+}
+{
+    <OPENBRACE> <FUNCTION> ( s = DeclareFunc()
+     {
+	 v.add(s);
+     }
+		       )+
+    <CLOSEBRACE>
+     {
+	 return v;
+     }
+}
+
+/** For Functions ***/
+/*** Function declaration at the top of the domain file ***/
+Function DeclareFunc() :
+{
+    Token t;
+    Function funct = new Function();
+    int count = 0;
+}
+{
+    ( (<OPENBRACE> t=<NAME>
+    {
+	funct.setName(t.image.toLowerCase());
+    }
+    ( (t=<VAR> {count++;})+  <MINUS> t=<NAME>
+    {
+	funct.addObj(t.image.toLowerCase(), count);
+	count = 0;
+    } )* <CLOSEBRACE>) | (t=<NAME>
+    {
+	funct.setName(t.image.toLowerCase());
+    }
+    ) )
+    {
+	return funct;
+    }
+}
+
+/*** Function declaration inside the action's body (Test/Set) ***/
+Function ActionFunc() :
+{
+    Token t;
+    Function p = new Function();
+}
+{
+    ( (<OPENBRACE> t=<NAME>
+    {
+	p.setName(t.image.toLowerCase());
+    }
+    ( t=<VAR>
+    {
+	p.addObj(t.image.toLowerCase());
+    } )* <CLOSEBRACE>) | (t=<NAME>
+    {
+	p.setName(t.image);
+    }
+    ) )
+    {
+	return p;
+    }
+}
+
+/*** Function instance declarations in the problem file ***/
+Function ProbFunc() :
+{
+    Token t;
+    Function p = new Function();
+}
+{
+    ( (<OPENBRACE> t=<NAME>
+    {
+	p.setName(t.image.toLowerCase());
+    }
+    ( t=<NAME>
+    {
+	p.addObj(t.image.toLowerCase());
+    } )* <CLOSEBRACE>) | (t=<NAME>
+    {
+	p.setName(t.image);
+    }
+    ) )
+    {
+	return p;
+    }
+}
+
+
+
+/*******/
+ArrayList ActionList() :
+{
+    ArrayList v = new ArrayList();
+    Action a;
+}
+{
+    ( a = Act()
+    {
+        v.add(a);
+    } )+
+    {
+	return v;
+    }
+}
+
+/*******/
+Action Act() :
+{
+    Token t;
+    Action act = new Action();
+}
+{
+    <OPENBRACE> (<ACTION>
+    {
+	act = InstantAct();
+    } | <DURATIVE_ACTION>
+    {
+	act = DurativeAct();
+    })
+    {
+	return act;
+    }
+}
+
+/*******/
+Action DurativeAct() :
+{
+    Token t;
+    Action act = new Action();
+    MathForm m;
+    ArrayList paraSet = new ArrayList();
+    Predicate p;
+    Test te;
+    MySet se;
+    Integer time;
+
+    boolean isTyped = false;
+}
+{
+    t=<NAME>
+    {
+	act.setName(t.image);
+    }
+
+    /**** Parameters ******/
+    <PARAMETERS> 
+    <OPENBRACE> ( ( t=<VAR>
+    {
+	paraSet.add(t.image.toLowerCase());
+    })+ (<MINUS>
+    {
+	isTyped = true;
+    } t=<NAME>
+    {
+	act.putPara(paraSet, t.image.toLowerCase());
+	paraSet.clear();
+    })?
+    )* <CLOSEBRACE>
+    {
+    	if( !isTyped )
+	    act.putPara(paraSet, "basic_type");
+    }
+
+    /**** Duration ****/
+    <DURATION> <OPENBRACE> <EQUAL> <DURATION_VAR>
+    ((t=<A_NUMBER>
+    {
+	act.setDType(true);
+	act.setDStatic( (new Float(t.image)).floatValue() );
+    }) | ( m=getMathForm()
+    {
+	act.setDType(false);
+	act.setDDynamic(m);
+    }))  <CLOSEBRACE>
+
+    /**** Action Cost ****/
+    (<COST> ((t=<A_NUMBER>
+    {
+	act.setCType(true);
+	act.setCStatic( (new Float(t.image)).floatValue() );
+    }) | ( m=getMathForm()
+    {
+	act.setCType(false);
+	act.setCDynamic(m);
+    })))?
+
+    /**** Preconditions ****/
+    <CONDITION>  (<OPENBRACE> <AND>)? 
+    ( <OPENBRACE> ( (<AT> <START>
+    {
+	time = new Integer(0);
+    }) | (<OVER> <ALL>
+    {
+	time = new Integer(1);
+    }) | (<AT> <END>
+    {
+	time = new Integer(2);
+    }) )
+    ( ((<OPENBRACE>)?  te=getTest()
+    {
+	act.putTest(te, time);
+    } (<CLOSEBRACE>)?) | ( p = ActionPred()
+    {
+	act.putPrecond(p, time);
+    }) | (ObjEqualityCheck() { })) (<CLOSEBRACE>)? )* (<CLOSEBRACE>)?
+
+    /**** Effects *****/
+    <EFFECT> (<OPENBRACE> <AND>)?
+    ( <OPENBRACE> <AT> (<START>
+    {
+	time = new Integer(0);
+    } | <END>
+    {
+	time = new Integer(1);
+    })
+    ( ((<OPENBRACE>)?  se=getSet()
+    {
+	act.putSet(se);
+	act.putSetTimeEffect(time);
+    } (<CLOSEBRACE>)?) | (<OPENBRACE> <NOT> p=ActionPred()
+    {
+	act.putDelete(p);
+	act.putDeleteTimeEffect(time);
+    } <CLOSEBRACE>) | (p = ActionPred()
+    {
+	act.putAdd(p);
+	act.putAddTimeEffect(time);
+    }) ) (<CLOSEBRACE>)? )+
+
+    /*** One "<CLOSEBRACE>" for "(and" of :effect, one ")" for :action ***/
+    <CLOSEBRACE> (<CLOSEBRACE>)?
+    {
+	return act;
+    }
+}
+
+/*** Instantaneous Actions **/
+Action InstantAct() :
+{
+    Token t;
+    Action act = new Action();
+    MathForm m;
+    ArrayList paraSet = new ArrayList();
+    Predicate p;
+    Test te;
+    MySet se;
+    Integer time;
+
+    boolean isTyped = false;
+}
+{
+    t=<NAME>
+    {
+	act.setDType(true);
+	act.setDStatic(0);
+	act.setName(t.image);
+    }
+
+    /**** Parameters ******/
+    <PARAMETERS> 
+    <OPENBRACE> ( ( t=<VAR>
+    {
+	paraSet.add(t.image.toLowerCase());
+    })+ (<MINUS>
+    {
+	isTyped = true;
+    } t=<NAME>
+    {
+	act.putPara(paraSet, t.image.toLowerCase());
+	paraSet.clear();
+    })?
+    )* <CLOSEBRACE>
+    {
+    	if( !isTyped )
+	    act.putPara(paraSet, "basic_type");
+    }
+
+    /**** Action Cost ****/
+    (<COST> ((t=<A_NUMBER>
+    {
+	act.setCType(true);
+	act.setCStatic( (new Float(t.image)).floatValue() );
+    }) | ( m=getMathForm()
+    {
+	act.setCType(false);
+	act.setCDynamic(m);
+    })))?
+
+    /**** Preconditions ****/
+    <PRECONDITION>
+    {
+	time = new Integer(0);
+    } (<OPENBRACE> <AND>)? 
+    ( ((<OPENBRACE>)?  te=getTest()
+    {
+	act.putTest(te, time);
+    } (<CLOSEBRACE>)?) | ( p = ActionPred()
+    {
+	act.putPrecond(p, time);
+    }) | (ObjEqualityCheck() { }) )* (<CLOSEBRACE>)?
+
+    /**** Effects *****/
+    <EFFECT> (<OPENBRACE> <AND>)?
+    {
+	time = new Integer(0); /** Default for instantaneous actions */
+    }
+    ( ((<OPENBRACE>)?  se=getSet()
+    {
+	act.putSet(se);
+	act.putSetTimeEffect(time);
+    } (<CLOSEBRACE>)?) | ( <OPENBRACE> <NOT> p=ActionPred()
+    {
+	act.putDelete(p);
+	act.putDeleteTimeEffect(time);
+    } <CLOSEBRACE> ) | ( p = ActionPred()
+    {
+	act.putAdd(p);
+	act.putAddTimeEffect(time);
+    })  )+
+
+    /*** One "<CLOSEBRACE>" for "(and" of :effect, one ")" for :action ***/
+    (<CLOSEBRACE>)? (<CLOSEBRACE>)?
+    {
+	return act;
+    }
+}
+
+/*** NOTE: Delete the part of getDuration() from old parser ***/
+
+/*** Should change for the new representation ****/
+Test getTest() :
+{
+    Token t;
+    Test aTest = new Test();
+    Function rm;
+    MathForm mf;
+}
+{
+    t=<COMPARISON>
+    {
+	aTest.setComparator(t.image);
+    } rm = ActionFunc()
+    {
+	aTest.setLeftSide(rm);
+    } mf=getMathForm()
+    {
+	aTest.setRightSide(mf);
+	return aTest;
+    }
+}
+
+
+/*** Should take care of the last <CLOSEBRACE> for "set" *****/
+MySet getSet() :
+{
+    Token t;
+    MySet aSet = new MySet();
+    Function  rm;
+    MathForm mf;
+}
+{
+    (t=<ASSIGN_MATH>
+    {
+	aSet.setAssign(t.image);
+    } | <ASSIGN>
+    {
+	aSet.setAssign("=");
+    } | <INCREASE>
+    {
+	aSet.setAssign("+=");
+    } | <DECREASE>
+    {
+	aSet.setAssign("-=");
+    } | <SCALEUP>
+    {
+	aSet.setAssign("*=");
+    } | <SCALEDOWN>
+    {
+	aSet.setAssign("/=");
+    })  rm = ActionFunc()
+    {
+	aSet.setLeftSide(rm);
+    }   mf=getMathForm()
+    {
+	aSet.setRightSide(mf);
+	return aSet;
+    }
+}
+
+
+/**** Get the Math Formular for Test/Set ******/
+MathForm getMathForm() :
+{
+    Token t;
+    MathForm mf = new MathForm();
+    Function f;
+    MathForm mf1, mf2;
+}
+{
+    mf=PrimaryMF()
+    {
+	return mf;
+    }
+|
+    (t=<PLUS> | t=<MINUS> | t=<MUL> | t=<DIVIDE>) 
+    mf1=getMathForm()  mf2=getMathForm()
+    {
+	mf.setType(3);
+	mf.setOperator(t.image.charAt(0));
+	mf.setLeft(mf1);
+	mf.setRight(mf2);
+	return mf;
+    }
+}
+
+/*** Primary (Simple) Math Formular ****/
+MathForm PrimaryMF() :
+{
+    Token t;
+    MathForm mf=new MathForm();
+    Function f;
+}
+{
+    t=<A_NUMBER>
+    {
+	mf.setType(1);
+	mf.setValue( (new Float(t.image)).floatValue() );
+	return mf;
+    }
+    | f=ActionFunc()
+    {
+	mf.setType(0);
+	mf.setElement(f);
+	return mf;
+    } |  ( <OPENBRACE> mf=getMathForm() <CLOSEBRACE>
+    {
+	return mf;
+    } ) | t=<DURATION_VAR>
+    {
+	mf.setType(5);
+	return mf;
+    }
+}
+
+
+void ObjEqualityCheck() : { }
+{
+     <OPENBRACE> <NOT> <OPENBRACE>
+     <EQUAL> (<VAR>)+ <CLOSEBRACE> <CLOSEBRACE>
+}
+
+/****************************************************************
+    Finish Parsing DOMAIN.
+	   -->> Start Parsing Problem.....
+****************************************************************/
+Problem parse_problem_pddl() :
+{
+    Problem prob = new Problem();
+    String s;
+    ArrayList aArrayList = new ArrayList();
+    Predicate p = new Predicate();
+    Function f = new Function();
+    Token t;
+    MathForm m;
+    boolean isTyped = false;
+}
+{
+    s = ProblemName()
+    {
+	prob.setName(s);
+    }
+    /**** Get Domain Name *****/
+    <OPENBRACE> <DOMAIN_TAG> t=<NAME> <CLOSEBRACE>
+    {
+	prob.setDomain(t.image.toLowerCase());
+    }
+
+    /**** Get the set of Objects used in this problem ******/
+    <OPENBRACE> <OBJECT>
+    {
+	aArrayList.clear();
+    }
+    ( (t=<NAME>
+    {
+	aArrayList.add(t.image.toLowerCase());
+    })+ (<MINUS> 
+    {
+	isTyped = true;
+    } t=<NAME>
+    {
+	prob.addObjectType(t.image.toLowerCase(), aArrayList);
+	aArrayList.clear();
+    })? )* <CLOSEBRACE>
+    {
+    	if( !isTyped )
+	    prob.addObjectType("basic_type", aArrayList);
+    }
+
+    /**** Get the Initial State ********/
+    <OPENBRACE> <INIT>
+
+    ( (<OPENBRACE> <AT> t=<A_NUMBER> ( (p=ProbPred()
+    {
+	prob.addExoEvent(p, new Float(t.image).floatValue(), false);
+    }) | (<OPENBRACE> <NOT> p=ProbPred()
+    {
+	prob.addExoEvent(p, new Float(t.image).floatValue(), true);
+    } <CLOSEBRACE>)) <CLOSEBRACE>) | (p=ProbPred()
+    {
+	prob.addInitPred(p);
+    }) | (<OPENBRACE> <EQUAL> f=ProbFunc() t=<A_NUMBER>
+    {
+	f.setValue( (new Float(t.image)).floatValue() );
+	prob.addInitFunct(f);
+    } <CLOSEBRACE>) )* 
+
+    <CLOSEBRACE>
+
+    /**** Get the Goal State ******/
+    <OPENBRACE> <GOAL> (<OPENBRACE> <AND>)?
+    ( p=ProbPred()
+    {
+	prob.addGoalPred(p);
+	prob.putGoalTime(p, new Float(0));
+    } (<MINUS> t=<A_NUMBER>
+    {
+	prob.putGoalTime(p, new Float(t.image));
+	prob.setDeadlineFlag();
+    })? )* (<CLOSEBRACE>)? <CLOSEBRACE>
+
+    /**** Parsing the plan quality metric, newly added for PDDL 2.1 *****/
+    (<OPENBRACE> <METRIC> (<MINIMIZE> | <MAXIMIZE>)
+		 m = getMathForm() <CLOSEBRACE>)?
+    <CLOSEBRACE>
+    {
+	return prob;
+    }
+
+}
+
+/******/
+String ProblemName() :
+{
+    Token t;
+}
+{
+    <OPENBRACE> <DEFINE> <OPENBRACE> <PROBLEM> t=<NAME> <CLOSEBRACE>
+    {
+	return t.image;
+    }
+}

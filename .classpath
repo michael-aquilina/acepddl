@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="aceview/src"/>
+	<classpathentry kind="src" path="acepddl/src"/>
+	<classpathentry kind="src" path="pddl/sapa/src/modified"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="PROTEGE_HOME/bin/org.apache.felix.main.jar"/>
+	<classpathentry kind="var" path="PROTEGE_HOME/bin/protege-launcher.jar"/>
+	<classpathentry kind="var" path="PROTEGE_HOME/bundles/protege-common.jar"/>
+	<classpathentry kind="var" path="PROTEGE_HOME/bundles/protege-editor-core.jar"/>
+	<classpathentry kind="var" path="PROTEGE_HOME/bundles/protege-editor-owl.jar"/>
+	<classpathentry kind="lib" path="lib/attempto-ape.jar"/>
+	<classpathentry kind="lib" path="lib/attempto-owl.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/httpclient-4.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/httpcore-4.4.3.jar"/>
+	<classpathentry kind="lib" path="lib/jdom.jar"/>
+	<classpathentry kind="lib" path="lib/jemmy-2.2.7.5.jar"/>
+	<classpathentry kind="lib" path="lib/log4j.jar"/>
+	<classpathentry kind="lib" path="lib/RadixTree-0.3.jar"/>
+	<classpathentry kind="lib" path="lib/simplenlgv4.2.jar"/>
+	<classpathentry kind="lib" path="lib/swing-worker-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/swingx-1.0.jar"/>
+	<classpathentry kind="var" path="PROTEGE_HOME/bundles/owlapi-osgidistribution.jar"/>
+	<classpathentry kind="var" path="PROTEGE_HOME/bundles/guava.jar"/>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

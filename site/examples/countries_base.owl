@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE Ontology [
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ace_lexicon "http://attempto.ifi.uzh.ch/ace_lexicon#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2010/9/27/countries_base.owl"
+     ontologyIRI="http://www.semanticweb.org/ontologies/2010/9/27/countries_base.owl">
+    <Declaration>
+        <Class IRI="#EU-country"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#European-country"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#G8-country"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NATO-country"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#baltic-state"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#sea"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#island-country"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#landlocked-territory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#neutral-country"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#border"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#contain"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#dislike"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#like"/>
+    </Declaration>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_pl"/>
+        <IRI>#EU-country</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">EU-countries</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_sg"/>
+        <IRI>#EU-country</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">EU-country</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_pl"/>
+        <IRI>#European-country</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">European-countries</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_sg"/>
+        <IRI>#European-country</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">European-country</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_pl"/>
+        <IRI>#G8-country</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">G8-countries</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_sg"/>
+        <IRI>#G8-country</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">G8-country</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_pl"/>
+        <IRI>#NATO-country</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">NATO-countries</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_sg"/>
+        <IRI>#NATO-country</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">NATO-country</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_pl"/>
+        <IRI>#baltic-state</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">baltic-states</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_sg"/>
+        <IRI>#baltic-state</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">baltic-state</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_pl"/>
+        <IRI>#sea</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">seas</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_sg"/>
+        <IRI>#sea</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">sea</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;TV_pl"/>
+        <IRI>#border</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">border</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;TV_sg"/>
+        <IRI>#border</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">borders</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;TV_vbg"/>
+        <IRI>#border</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">bordered</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;TV_pl"/>
+        <IRI>#contain</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">contain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;TV_sg"/>
+        <IRI>#contain</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">contains</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;TV_vbg"/>
+        <IRI>#contain</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">contained</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;TV_pl"/>
+        <IRI>#dislike</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">dislike</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;TV_sg"/>
+        <IRI>#dislike</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">dislikes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;TV_vbg"/>
+        <IRI>#dislike</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">disliked</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_pl"/>
+        <IRI>#island-country</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">island-countries</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_sg"/>
+        <IRI>#island-country</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">island-country</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_pl"/>
+        <IRI>#landlocked-territory</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">landlocked-territories</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_sg"/>
+        <IRI>#landlocked-territory</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">landlocked-territory</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;TV_pl"/>
+        <IRI>#like</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">like</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;TV_sg"/>
+        <IRI>#like</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">likes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;TV_vbg"/>
+        <IRI>#like</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">liked</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_pl"/>
+        <IRI>#neutral-country</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">neutral-countries</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="&ace_lexicon;CN_sg"/>
+        <IRI>#neutral-country</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">neutral-country</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+<!-- Unused XML entities and prefixes and OWL/XML prefixes removed by Kaarel Kaljurand -->

@@ -98,19 +98,15 @@
 		<echo message="**********************************************************" />
 		<condition property="libs.found">
 			<and>
-				<available file="${protege.osgi}" type="file" />
 				<available file="${equinox.common}" type="file" />
 				<available file="${equinox.registry}" type="file" />
 				<available file="${owl.editor.jar}" type="file" />
 				<available file="${owl.lib}" type="file" />
-				<available file="${guice}" type="file" />
 				<available file="${protege.lib}" type="file" />
-				<available file="${osgi.lib}" type="dir" />
 			</and>
 		</condition>
 		<path id="project.classpath">
 			<fileset dir="${lib}" />
-			<fileset dir="${osgi.lib}" />
 			<fileset dir="${protege.bundles}" />
 			<fileset dir="${protege.bin}" />
 			<fileset dir="${genlib}" />
